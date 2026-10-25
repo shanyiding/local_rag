@@ -1,0 +1,9 @@
+# One JSON object per line. Lines starting with # are ignored.
+{"question": "What is the default chunk size?", "expected_sources": ["example/about_localrag.md"], "expected_keywords": ["800"]}
+{"question": "Which embedding model does LocalRAG use by default?", "expected_sources": ["example/about_localrag.md"], "expected_keywords": ["nomic-embed-text"]}
+{"question": "Where is the vector database stored?", "expected_sources": ["example/about_localrag.md"], "expected_keywords": ["data/chroma"]}
+{"question": "How does re-indexing avoid redoing work?", "expected_sources": ["example/about_localrag.md"], "expected_keywords": ["hash"]}
+{"question": "How many hours a day do ferrets sleep?", "expected_sources": ["example/ferret_care.txt"], "expected_keywords": ["14", "18"]}
+{"question": "Which vaccinations do adult ferrets need?", "expected_sources": ["example/ferret_care.txt"], "expected_keywords": ["distemper", "rabies"]}
+{"question": "What is the capital of Australia?", "should_refuse": true}
+{"question": "Who won the 2018 football World Cup?", "should_refuse": true}

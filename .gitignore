@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# Your private data never gets committed
+data/chroma/
+data/docs/*
+!data/docs/example/
+eval/results/

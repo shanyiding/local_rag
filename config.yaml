@@ -1,0 +1,34 @@
+# LocalRAG configuration. Every key is optional; defaults are shown.
+# Point to a different file with: LOCALRAG_CONFIG=/path/to/file.yaml or --config
+
+# --- Models (served by Ollama) ---
+ollama_host: http://localhost:11434
+chat_model: llama3.2            # try qwen2.5:7b, gemma3, mistral, etc.
+embed_model: nomic-embed-text   # try mxbai-embed-large, bge-m3
+# nomic-embed-text works best with these prefixes. Set both to "" for other embedders.
+query_prefix: "search_query: "
+doc_prefix: "search_document: "
+
+# --- Storage ---
+docs_dir: data/docs             # drop your files here
+db_dir: data/chroma             # vector database lives here
+collection: docs
+
+# --- Chunking ---
+chunk_size: 800                 # characters per chunk
+chunk_overlap: 150              # characters shared between neighbouring chunks
+
+# --- Retrieval ---
+top_k: 8                        # passages given to the model
+hybrid: true                    # combine meaning search with exact-keyword (BM25) search
+candidate_pool: 30              # candidates each search contributes before merging
+min_similarity: 0.30            # below this the assistant says "I couldn't find that"
+condense_followups: true        # rewrite follow-up questions into standalone ones
+
+# --- Generation ---
+temperature: 0.2
+num_ctx: 4096                   # context window; raise if you raise top_k/chunk_size
+
+# --- Ingestion ---
+embed_batch_size: 32
+extensions: [".txt", ".md", ".rst", ".pdf", ".docx", ".pptx", ".xlsx", ".html", ".htm", ".py", ".csv", ".json"]

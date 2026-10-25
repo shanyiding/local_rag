@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "localrag"
+version = "0.1.0"
+description = "A private, fully local chat-with-your-documents assistant (RAG) built on Ollama and ChromaDB."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "chromadb>=0.5",
+    "pypdf>=4.0",
+    "requests>=2.31",
+    "pyyaml>=6.0",
+    "streamlit>=1.35",
+    "python-docx>=1.1",
+    "python-pptx>=0.6.23",
+    "openpyxl>=3.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+localrag = "localrag.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["localrag*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
